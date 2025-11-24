@@ -1,0 +1,45 @@
+To organize the levels, components, and workflows of your Swan ERP project effectively, it helps to mirror the natural hierarchy and dependencies already captured in your documentation. Here’s a structured approach that aligns with the repository’s architecture, phase plans, and work orders:
+
+Foundation Level – Core Infrastructure:
+
+Repository and GitHub Organization Setup: Begin by ensuring all repositories are created, protected, and seeded with standard templates and CI workflows, as outlined in your GitHub Setup work order.
+
+Documentation Hub: Treat swan_system_docs as the foundational “source of truth.” All subsequent work should link back to this repository’s phase plans, work orders, and governance guidelines.
+
+Data Backbone – Firebase Backend:
+
+Build the central data model and security rules (Firestore collections, Realtime DB nodes, and Cloud Functions) defined in the Firebase Backend work order. This layer forms the integration point for every downstream subsystem.
+
+Subsystems – Vertical Components:
+
+Desktop Manager: Develop the desktop app to manage contracts, timesheets, and invoices locally. It consumes and triggers backend functions, so it should follow once the Firebase schema is stable.
+
+Excel Migration: In parallel with or immediately following Desktop Manager development, migrate legacy Excel processes to Python modules used by the desktop app.
+
+Contractor Portal & Website: Once data flows and desktop workflows are established, build the portal and public-facing website, leveraging Firebase Auth and Realtime DB to provide contractors with upload and status-tracking functionality and the public website with the company’s front door.
+
+Finance Integration: When invoice generation from the desktop app and portal uploads are stable, implement the export and payment synchronization logic to connect with your accounts software.
+
+Orchestration & Observability – Control Tower:
+
+After key subsystems are functional, develop the Control Tower as the orchestration and monitoring layer. It ingests events from all other systems, provides triggers for reruns, and supplies health dashboards and reporting.
+
+Visuals and Deployment:
+
+Throughout these phases, develop visuals (flow diagrams, ERDs, module maps, sequence diagrams) concurrently with specs, ensuring they remain current. Introduce a deployment diagram during later phases to document CI/CD and hosting infrastructure.
+
+Use your Visuals work order to enforce the three-format rule (Markdown with context, Mermaid source, HTML) and cross-link diagrams into all relevant documents.
+
+Roadmap Phasing – Align with Documentation Phases:
+
+Phase 1/2: Foundational setups (repos, docs) and backend core.
+
+Phase 3: Desktop app development and Excel migration.
+
+Phase 4: Contractor portal and website.
+
+Phase 5: Finance integration.
+
+Phase 6–8: Migration cutover, Control Tower build-out, and continuous improvement.
+
+By following the above order—starting from foundational docs and data infrastructure, moving up through user-facing subsystems, and finally adding orchestration and monitoring—you ensure each component builds upon the previous one, leverages existing work orders and design documents, and aligns with your phased roadmap.
