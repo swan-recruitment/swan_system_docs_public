@@ -1,0 +1,66 @@
+### 🔍 What This Diagram Shows
+
+* **CATSone ATS** triggers the workflow via Firebase.
+* **Firebase Backend** acts as the hub (Firestore, Realtime DB, Functions).
+* **Contractor Portal** lets contractors upload docs and see live statuses.
+* **Desktop App** is staff’s cockpit for timesheets, invoices, reporting.
+* **Finance Integration** automates invoices + reconciles payments with accounting software.
+* **Control Tower** monitors, alerts, and orchestrates all subsystems.
+
+---
+
+Here’s the Mermaid code:
+
+```
+flowchart TD
+
+    %% External Systems
+    A[CATSone ATS] -->|Webhook: Candidate Placed| B[Firebase Backend]
+    Z[Accounting Software] <--> I[Finance Integration]
+
+    %% Firebase Core
+    subgraph F[Firebase Backend]
+        B --> C[Firestore DB]
+        B --> D[Realtime DB]
+        B --> E[Cloud Functions]
+    end
+
+    %% Contractor Portal + Website
+    subgraph W[Website + Contractor Portal]
+        P[Contractor Portal]
+        Q[Public Website]
+    end
+
+    P -->|Upload Timesheets, Invoices, Expenses| C
+    P -->|View Status Updates| D
+    Q -->|Portal Login| P
+
+    %% Desktop App
+    subgraph X[Operations Desktop App]
+        H[Timesheet Entry Module]
+        G[Invoice Entry Module]
+        J[Reporting Module]
+    end
+
+    C <--> H
+    C <--> G
+    C <--> J
+
+    %% Finance Integration
+    I -->|Push Client Invoices| Z
+    I -->|Payment Status Sync| D
+    G -->|Approved Invoices| I
+
+    %% Control Tower
+    subgraph CT[Control Tower]
+        K[System Health Monitor]
+        L[Manual Workflow Triggers]
+        M[Alerts & Notifications]
+        N[Version Dashboard]
+    end
+
+    CT --> B
+    CT --> P
+    CT --> X
+    CT --> I
+```
