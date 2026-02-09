@@ -1,0 +1,47 @@
+Module interaction map (Mermaid). Export PNG/SVG via Mermaid Live Editor if needed.
+Here’s your **Module Interaction Map** ✅
+
+### Downloads
+
+* 📄 Markdown (GitHub will render directly):
+  [swan_erp_module_map.md](sandbox:/mnt/data/swan_erp_module_map.md)
+* 🗂️ Raw Mermaid source:
+  [swan_erp_module_map.mmd](sandbox:/mnt/data/swan_erp_module_map.mmd)
+* 🌐 Standalone HTML (open locally in browser):
+  [swan_erp_module_map.html](sandbox:/mnt/data/swan_erp_module_map.html)
+
+---
+
+### 🔍 What It Shows
+
+This is a **high-level overview** of how all your core modules interact:
+
+* **Firebase Backend** is the hub, connected to:
+
+  * **CATSone ATS** (via webhook + API)
+  * **Contractor Portal** (for contractor uploads & status)
+  * **Desktop App** (for staff operations)
+  * **Finance Integration** (syncing to Accounting software)
+  * **Control Tower** (monitoring + orchestration)
+
+* **Contractor Portal** sits under the Website, feeding into Firebase.
+
+* **Finance Integration** pushes/pulls data to/from **Accounting Software**.
+
+* **Control Tower** also links directly to the Desktop App for oversight.
+
+---
+
+### ✅ Visuals Status Recap
+
+* System Flow Diagram → **Complete**
+* ERD (Firestore & Realtime DB) → **Complete**
+* Sequence Diagram (Contract Generator) → **Complete**
+* Module Interaction Map → **Complete**
+* Deployment Diagram → **Deferred**
+
+That means your **Visual Docs Index is almost fully ticked off** 🎉
+
+---
+
+👉 Do you want me to now **update the Visual Docs Index file** so it marks this Module Interaction Map as ✅ complete?
