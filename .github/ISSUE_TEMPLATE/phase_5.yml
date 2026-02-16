@@ -1,0 +1,67 @@
+name: Phase 5 — Finance Integration
+description: Track Objectives, Dependencies, DoD, Risks, KPIs for Phase 5
+title: Phase 5: Finance Integration
+labels: ["phase-5", "planning"]
+body:
+  - type: markdown
+    attributes:
+      value: "### Phase Overview\nFill in the sections below using the Phase Plans and Design Specs indexes."
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: "Objective"
+      description: "What is the goal of this phase?"
+      placeholder: "Summarize the business and technical outcomes."
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: "Dependencies"
+      description: "What must be completed before this phase starts?"
+
+  - type: textarea
+    id: entry
+    attributes:
+      label: "Entry Criteria"
+      description: "What conditions must be true before work begins?"
+
+  - type: textarea
+    id: exit
+    attributes:
+      label: "Exit Criteria (Definition of Done)"
+      description: "What must be delivered to call this phase done?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: "Risks & Mitigations"
+      description: "List risks and how you will mitigate them."
+
+  - type: textarea
+    id: kpis
+    attributes:
+      label: "KPIs / Acceptance Tests"
+      description: "How will success be measured? Include SLA/metrics."
+
+  - type: textarea
+    id: links
+    attributes:
+      label: "Linked Files (plans/specs/visuals)"
+      description: "Paste filenames or URLs to relevant docs and diagrams."
+
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: "Tasks"
+      options: [{"label": "Draft content"}, {"label": "Review with leads"}, {"label": "Finalize and approve"}, {"label": "Close phase issue"}]
+
+  - type: input
+    id: approvals
+    attributes:
+      label: "Approvals"
+      description: "Reviewer names / roles"
