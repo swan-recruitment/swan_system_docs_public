@@ -1,0 +1,8 @@
+%% Mermaid diagram stub for Timesheet & Invoice Submission
+sequenceDiagram
+    participant Contractor
+    participant Portal
+    participant ERP
+    Contractor->>Portal: Submit Timesheet+Invoice
+    Portal->>ERP: Process Submission
+    ERP->>Archive: Store Copies

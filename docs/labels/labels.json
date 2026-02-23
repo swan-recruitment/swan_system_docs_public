@@ -1,0 +1,47 @@
+[
+  {
+    "name": "phase",
+    "color": "6f42c1",
+    "description": "Work is a phase of delivery"
+  },
+  {
+    "name": "ct-track",
+    "color": "0e8a16",
+    "description": "Visible in Control Tower"
+  },
+  {
+    "name": "kickoff",
+    "color": "0366d6",
+    "description": "Phase kickoff"
+  },
+  {
+    "name": "delivery",
+    "color": "0052cc",
+    "description": "Phase delivery/execution"
+  },
+  {
+    "name": "qa",
+    "color": "5319e7",
+    "description": "Phase QA/verification"
+  },
+  {
+    "name": "closeout",
+    "color": "1d76db",
+    "description": "Phase closeout"
+  },
+  {
+    "name": "blocked",
+    "color": "b60205",
+    "description": "Blocked by dependency or risk"
+  },
+  {
+    "name": "risk",
+    "color": "d93f0b",
+    "description": "Material risk exists"
+  },
+  {
+    "name": "needs-approval",
+    "color": "ededed",
+    "description": "Requires owner approval"
+  }
+]

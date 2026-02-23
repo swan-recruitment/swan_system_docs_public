@@ -1,0 +1,68 @@
+name: Publish sanitized mirror (public)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: "0 6 * * 1"  # Mondays 06:00 UTC
+
+permissions:
+  contents: read
+
+env:
+  MIRROR_REPO: swan-recruitment/swan_system_docs_public
+  MIRROR_BRANCH: main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+
+      - name: Stage repo for public mirror (deny-list)
+        run: |
+          rm -rf mirror
+          mkdir -p mirror
+          rsync -av --delete             --chmod=D755,F644             --exclude-from='.mirrorignore-public'             ./ mirror/
+
+      - name: Write provenance
+        run: |
+          echo '{' > mirror/MIRROR_PROVENANCE.json
+          echo '  "source_repo": "'${{ github.repository }}'",' >> mirror/MIRROR_PROVENANCE.json
+          echo '  "source_sha": "'${{ github.sha }}'",' >> mirror/MIRROR_PROVENANCE.json
+          echo '  "generated_at": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"' >> mirror/MIRROR_PROVENANCE.json
+          echo '}' >> mirror/MIRROR_PROVENANCE.json
+
+      - name: Scan staged files for secrets (gitleaks binary)
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.18.4/gitleaks_8.18.4_linux_x64.tar.gz             | tar -xz gitleaks
+          ./gitleaks detect --no-git -s mirror --verbose
+
+      - name: Verify MIRROR_SSH_KEY is present
+        run: |
+          if [ -z "${{ secrets.MIRROR_SSH_KEY }}" ]; then
+            echo "ERROR: Set Actions secret MIRROR_SSH_KEY to your private deploy key." >&2
+            exit 1
+          fi
+
+      - name: Initialize mirror repo and push (SSH)
+        env:
+          MIRROR_SSH_URL: git@github.com:swan-recruitment/swan_system_docs_public.git
+        run: |
+          cd mirror
+          git init
+          git config user.name "mirror-bot"
+          git config user.email "mirror-bot@users.noreply.github.com"
+          git checkout -B "${{ env.MIRROR_BRANCH }}"
+          git add -A
+          git commit -m "mirror: update public snapshot (deny-list)" || echo "Nothing to commit"
+
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "${{ secrets.MIRROR_SSH_KEY }}"
+          mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          git remote add origin "$MIRROR_SSH_URL"
+          # Overwrite history intentionally for a clean mirror
+          git push --force origin "${{ env.MIRROR_BRANCH }}"

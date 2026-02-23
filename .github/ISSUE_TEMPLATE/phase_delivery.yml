@@ -1,0 +1,49 @@
+name: "Phase: Delivery"
+description: "Track execution of the phase; ensure audit trail and CT visibility."
+title: "[Delivery] <Project/Subsystem> – <Short name>"
+labels: ["phase", "ct-track", "delivery"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Objectives
+        Ensure the delivery work aligns to the Kickoff's objectives.
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope Updates (if any)
+      description: List scope changes since Kickoff (if changed).
+  - type: textarea
+    id: progress
+    attributes:
+      label: Progress Summary
+      description: Summarise work to date; include links to key PRs/issues.
+    validations:
+      required: true
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Blockers
+      description: Dependencies or risks causing delay; add `blocked` label if applicable.
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Metrics / Evidence
+      description: CI pass rates, perf numbers, adoption metrics, etc.
+  - type: textarea
+    id: links
+    attributes:
+      label: Links (Updated)
+      description: Additional links since Kickoff (designs, CT views, dashboards).
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: Tasks
+      options:
+        - label: "CI green"
+          required: true
+        - label: "Docs updated"
+          required: true
+        - label: "Owner updated"
+          required: false
