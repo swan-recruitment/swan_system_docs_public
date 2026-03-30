@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CT Event",
+  "type": "object",
+  "required": [
+    "eventId",
+    "type",
+    "ts",
+    "source"
+  ],
+  "properties": {
+    "eventId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "portal",
+        "backend",
+        "finance",
+        "desktop",
+        "github",
+        "website"
+      ]
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "ingest": {
+      "type": "object",
+      "properties": {
+        "receivedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "duplicate",
+            "error"
+          ]
+        }
+      }
+    }
+  }
+}
