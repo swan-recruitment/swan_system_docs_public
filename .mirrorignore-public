@@ -1,0 +1,90 @@
+# -------- SENSITIVE KEYS / CREDS (never publish) --------
+**/.env
+**/.env.*
+**/*secret*
+**/*secrets*
+**/*token*
+**/*apikey*
+**/*api_key*
+**/*password*
+**/*passphrase*
+**/*credentials*
+**/*credential*
+**/*auth*
+**/*.pem
+**/*.key
+**/*.pfx
+**/*.p12
+**/*id_rsa*
+**/*id_dsa*
+**/*_ed25519*
+**/*_ecdsa*
+
+# Common cloud/service key formats
+**/service-account*.json
+**/*firebase*.json
+**/*aws*credentials*
+**/*azure*connection*
+**/*gcp*key*
+**/*vault*token*
+
+# -------- LOCAL STATE / BUILDS / HEAVY ARTIFACTS --------
+node_modules/
+dist/
+build/
+out/
+.next/
+.turbo/
+.cache/
+coverage/
+reports/
+artifacts/
+__pycache__/
+*.pyc
+.venv/
+venv/
+target/
+bin/
+obj/
+.gradle/
+.mvn/
+*.iml
+
+# Archives / binaries
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Databases / dumps
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.dump
+backups/
+dumps/
+
+# -------- VCS / EDITOR NOISE --------
+.git/
+.gitmodules
+.gitignore
+.gitattributes
+.svn/
+.idea/
+.vscode/
+.DS_Store
+*.log
+
+# -------- KEYS GENERATED EARLIER --------
+mirror_rsa
+mirror_rsa.pub
+
+# -------- PROJECT-SPECIFIC (add more as needed) --------
+# docs/private/
+# internal_only/

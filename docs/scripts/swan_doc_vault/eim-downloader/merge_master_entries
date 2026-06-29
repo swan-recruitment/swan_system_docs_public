@@ -1,0 +1,71 @@
+import csv
+import json
+import sys
+from pathlib import Path
+
+# Load config.json (so we always write to your chosen base_path)
+here = Path(__file__).parent
+cfg = json.loads((here / "config.json").read_text(encoding="utf-8"))
+BASE_PATH = Path(cfg["base_path"])
+MASTER = BASE_PATH / "master_entries.csv"
+
+def load_csv(path: Path):
+    rows = []
+    if not path.exists():
+        return rows
+    with path.open("r", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            rows.append({
+                "parent_code": row.get("parent_code","").strip(),
+                "parent_title": row.get("parent_title","").strip(),
+                "child_code":  row.get("child_code","").strip(),
+                "child_title": row.get("child_title","").strip(),
+            })
+    return rows
+
+def write_csv(path: Path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["parent_code","parent_title","child_code","child_title"])
+        w.writeheader()
+        w.writerows(rows)
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python merge_master_entries.py <new_entries.csv>")
+        sys.exit(1)
+
+    new_path = Path(sys.argv[1])
+    incoming = load_csv(new_path)
+    existing = load_csv(MASTER)
+
+    # Key = (parent_code, child_code)
+    by_key = {}
+
+    # seed with existing
+    for r in existing:
+        key = (r["parent_code"], r["child_code"])
+        by_key[key] = r
+
+    # merge incoming, prefer non-empty titles from incoming
+    for r in incoming:
+        key = (r["parent_code"], r["child_code"])
+        if key in by_key:
+            cur = by_key[key]
+            # fill missing titles if incoming has content
+            if not cur["parent_title"] and r["parent_title"]:
+                cur["parent_title"] = r["parent_title"]
+            if not cur["child_title"] and r["child_title"]:
+                cur["child_title"] = r["child_title"]
+        else:
+            by_key[key] = r
+
+    # make a list and sort
+    out = list(by_key.values())
+    out.sort(key=lambda x: (x["parent_code"], x["child_code"]))
+
+    write_csv(MASTER, out)
+    print(f"✓ Merged into {MASTER} ({len(out)} unique rows).")
+
+if __name__ == "__main__":
+    main()

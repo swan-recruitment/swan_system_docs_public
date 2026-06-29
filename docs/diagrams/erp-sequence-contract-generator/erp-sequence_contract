@@ -1,0 +1,28 @@
+**Sequence Diagram for the Contract Generator flow** 
+
+### Downloads
+
+* 📄 Markdown (renders directly in GitHub):
+  [swan_erp_sequence_contract.md](sandbox:/mnt/data/swan_erp_sequence_contract.md)
+* 🗂️ Raw Mermaid source:
+  [swan_erp_sequence_contract.mmd](sandbox:/mnt/data/swan_erp_sequence_contract.mmd)
+* 🌐 Standalone HTML (open in browser, auto-renders via Mermaid CDN):
+  [swan_erp_sequence_contract.html](sandbox:/mnt/data/swan_erp_sequence_contract.html)
+
+---
+
+### 🔍 What It Shows
+
+1. **CATSone ATS** marks a candidate as *Placed*.
+2. **Webhook** sends payload to Firebase.
+3. **Cloud Function (Contract Generator)**:
+
+   * Creates new contract doc in **Firestore**.
+   * Uploads generated contract to **CATSone API**.
+   * Stores templates in Firestore.
+4. **Firestore** syncs assignment details:
+
+   * Contractor Portal → contractor sees metadata.
+   * Desktop App → staff sees assignment record.
+
+---

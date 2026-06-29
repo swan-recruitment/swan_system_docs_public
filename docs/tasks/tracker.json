@@ -1,0 +1,114 @@
+{
+  "last_updated": "2025-09-27",
+  "items": [
+    {
+      "id": "event_schemas",
+      "priority": 1,
+      "title": "Event Schemas + Validator + CI",
+      "status": "not_started",
+      "files": [
+        "docs/schemas/events/",
+        "scripts/validate_events.*"
+      ]
+    },
+    {
+      "id": "phase1_plan",
+      "priority": 1,
+      "title": "Phase 1 Plan (content)",
+      "status": "not_started",
+      "files": [
+        "docs/plans/phase_1_plan.md"
+      ]
+    },
+    {
+      "id": "finance_mapping",
+      "priority": 1,
+      "title": "Finance Mapping",
+      "status": "not_started",
+      "files": [
+        "docs/design/finance_mapping.md"
+      ]
+    },
+    {
+      "id": "ct_dashboards",
+      "priority": 2,
+      "title": "CT Dashboards Spec",
+      "status": "not_started",
+      "files": [
+        "docs/design/ct_dashboards.md"
+      ]
+    },
+    {
+      "id": "portal_validation",
+      "priority": 2,
+      "title": "Portal Validation Matrix",
+      "status": "not_started",
+      "files": [
+        "docs/work_orders/work_order_contractor_portal.md"
+      ]
+    },
+    {
+      "id": "migration_runbook",
+      "priority": 2,
+      "title": "Excel\u2192Firebase Runbook",
+      "status": "not_started",
+      "files": [
+        "docs/work_orders/work_order_excel_migration.md"
+      ]
+    },
+    {
+      "id": "desktop_poc_plan",
+      "priority": 3,
+      "title": "Desktop Manager POC Plan",
+      "status": "not_started",
+      "files": [
+        "docs/work_orders/work_order_desktop_manager.md"
+      ]
+    },
+    {
+      "id": "ct_quality_runbook",
+      "priority": 3,
+      "title": "CT Quality Jobs Runbook",
+      "status": "not_started",
+      "files": [
+        "docs/tasks/ct_quality_jobs.md"
+      ]
+    },
+    {
+      "id": "website_deepening",
+      "priority": 4,
+      "title": "Website WO Deepening",
+      "status": "not_started",
+      "files": [
+        "docs/work_orders/work_order_website.md"
+      ]
+    },
+    {
+      "id": "contributing",
+      "priority": 4,
+      "title": "CONTRIBUTING.md",
+      "status": "not_started",
+      "files": [
+        "/CONTRIBUTING.md"
+      ]
+    },
+    {
+      "id": "glossary",
+      "priority": 4,
+      "title": "GLOSSARY.md",
+      "status": "not_started",
+      "files": [
+        "docs/GLOSSARY.md"
+      ]
+    },
+    {
+      "id": "adrs",
+      "priority": 4,
+      "title": "ADRs",
+      "status": "not_started",
+      "files": [
+        "docs/design/ADR/"
+      ]
+    }
+  ]
+}
