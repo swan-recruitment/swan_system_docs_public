@@ -1,0 +1,70 @@
+%% Work Orders Index Visualisations (Mermaid)
+
+%% -------------------------------------
+%% Phase Progress Pie Chart
+%% -------------------------------------
+pie showData
+  title Phase Completion Status
+  "Phase 1 — Foundations (66%)" : 2
+  "Phase 2 — Core Ops (25%)" : 1
+  "Phase 3 — Oversight (0%)" : 0
+  "Phase 4 — Optimisation (0%)" : 0
+
+%% -------------------------------------
+%% Work Orders Dependencies Flowchart
+%% -------------------------------------
+flowchart TD
+  subgraph Phase1[Phase 1 - Foundations]
+    FBE[Firebase Backend ✅]
+    GHS[GitHub Setup ✅]
+    CP[Contractor Portal 🟦]
+  end
+
+  subgraph Phase2[Phase 2 - Core Ops]
+    WEB[Website 🟡]
+    FIN[Finance Integration 🟡]
+    EXM[Excel Migration 🟡]
+    PPI[Phase Plan Integration 🟡]
+  end
+
+  subgraph Phase3[Phase 3 - Control & Oversight]
+    CT[Control Tower 🟡]
+    DM[Desktop Manager 🟡]
+    VIS[Visuals 🟡]
+  end
+
+  subgraph Phase4[Phase 4 - Optimisation]
+    RT[Replay Tool 🟡]
+    UI[CT UI Scaffold 🟡]
+  end
+
+  FBE --> CP
+  GHS --> CP
+  CP --> WEB
+  CP --> FIN
+  FIN --> CT
+  EXM --> CT
+  CT --> RT
+  CT --> UI
+
+%% -------------------------------------
+%% Audit & Milestone Timeline (Gantt)
+%% -------------------------------------
+gantt
+    title Work Orders Audit & Milestone Timeline
+    dateFormat  YYYY-MM-DD
+    section Reviews
+    Monthly Audit :milestone, m1, 2025-10-27, 1d
+    Quarterly Review (Q4) :milestone, q1, 2025-12-15, 1d
+
+    section Phase 1
+    Contractor Portal Validation :active, cpv, 2025-10-15, 5d
+
+    section Phase 2
+    Finance Sandbox Validation :finv, 2025-11-10, 5d
+
+    section Phase 3
+    Control Tower Daily Digest :ctdd, 2025-12-01, 5d
+
+    section Phase 4
+    Replay Tool Audit Logging :rta, 2026-01-15, 5d

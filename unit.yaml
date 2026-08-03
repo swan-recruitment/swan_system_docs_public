@@ -1,0 +1,11 @@
+name: system-docs
+purpose: "Central repository of Swan governance documents, SOPs, and work orders."
+owner: "PMO"
+status: "Active"
+entry_point: "INDEX.md"
+authoritative_files:
+  - INDEX.md
+  - work_order_master.md
+  - commit_plan_master_sync.md
+  - CONTRIBUTING.md
+  - README.md

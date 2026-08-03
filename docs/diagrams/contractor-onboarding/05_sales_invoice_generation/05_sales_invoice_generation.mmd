@@ -1,0 +1,8 @@
+%% Mermaid diagram stub for Sales Invoice Generation
+sequenceDiagram
+    participant ERP
+    participant Admin
+    participant Client
+    Admin->>ERP: Generate Sales Invoice
+    ERP->>Client: Send Invoice
+    ERP->>Archive: Store copy

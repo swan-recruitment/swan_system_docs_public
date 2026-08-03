@@ -1,0 +1,56 @@
+name: Docs Link Check
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - '**/*.md'
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - '**/*.md'
+  workflow_dispatch:
+
+# Cancel older runs of this workflow on the same ref
+concurrency:
+  group: ${{ github.workflow }}@${{ github.ref }}
+  cancel-in-progress: true
+
+# Least-privilege token by default
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        # actions/checkout@v4.2.2 pinned by SHA (supply-chain safe)
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac
+        with:
+          fetch-depth: 1
+
+      - name: Install lychee link checker
+        run: |
+          set -euo pipefail
+          curl -sSfL https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+          cargo binstall -y lychee
+
+      - name: Run linkcheck (retry-friendly)
+        run: |
+          set -euo pipefail
+          lychee \
+            --no-progress \
+            --max-concurrency 8 \
+            --retry-wait-time 2 \
+            --max-retries 2 \
+            --accept 200..399 \
+            --exclude 'localhost|127\.0\.0\.1|example\.com' \
+            --verbose \
+            '**/*.md'

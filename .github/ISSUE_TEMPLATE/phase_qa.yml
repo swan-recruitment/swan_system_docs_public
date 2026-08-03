@@ -1,0 +1,38 @@
+name: "Phase: QA / Verification"
+description: "Formalise verification: tests, acceptance, and sign-off readiness."
+title: "[QA] <Project/Subsystem> – <Short name>"
+labels: ["phase", "ct-track", "qa"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Objectives
+        Confirm the phase meets acceptance criteria.
+  - type: textarea
+    id: test_plan
+    attributes:
+      label: Test Plan
+      description: Link or outline the test plan: unit, integration, E2E, security, perf.
+      placeholder: >
+        e.g., Emulator tests pass; Lighthouse scores; redaction tests; parity tests.
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results & Evidence
+      description: Summarise results, attach screenshots or logs, link CI runs.
+    validations:
+      required: true
+  - type: checkboxes
+    id: acceptance
+    attributes:
+      label: Acceptance Checks
+      options:
+        - label: "Acceptance criteria met"
+          required: true
+        - label: "Risks re-evaluated"
+          required: true
+        - label: "Docs updated"
+          required: true

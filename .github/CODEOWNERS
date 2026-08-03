@@ -1,0 +1,25 @@
+# CODEOWNERS for Swan System Docs
+# Purpose: enforce review responsibility and ensure PRs are reviewed by the right people.
+# This file is used by GitHub’s branch protection rules.
+
+# Global default: any file must be reviewed by @ben-pitman
+*                               @ben-pitman
+
+# Governance & templates
+.github/ISSUE_TEMPLATE/*         @ben-pitman
+.github/workflows/*              @ben-pitman
+.github/labels.json              @ben-pitman
+.github/pull_request_template.md @ben-pitman
+
+# Documentation domains
+/docs/design/*                   @ben-pitman
+/docs/diagrams/*                 @ben-pitman
+/docs/plans/*                    @ben-pitman
+/docs/work_orders/*              @ben-pitman
+/docs/control_tower/*            @ben-pitman
+/docs/scripts/*                  @ben-pitman
+/docs/templates/*                @ben-pitman
+
+# Repo governance
+/commit_plan_master_sync.md      @ben-pitman
+/docs/labels_import_instructions.md @ben-pitman
