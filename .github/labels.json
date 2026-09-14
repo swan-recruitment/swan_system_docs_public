@@ -1,0 +1,157 @@
+[
+  {
+    "name": "phase-1-2",
+    "color": "1d76db",
+    "description": "Phase 1\u20132 \u2014 Foundations + Backend Core"
+  },
+  {
+    "name": "phase-3",
+    "color": "1d76db",
+    "description": "Phase 3 \u2014 Desktop App + Excel Migration"
+  },
+  {
+    "name": "phase-4",
+    "color": "1d76db",
+    "description": "Phase 4 \u2014 Contractor Portal + Website"
+  },
+  {
+    "name": "phase-5",
+    "color": "1d76db",
+    "description": "Phase 5 \u2014 Finance Integration"
+  },
+  {
+    "name": "phase-6",
+    "color": "1d76db",
+    "description": "Phase 6 \u2014 Excel Migration Cutover & Final Testing"
+  },
+  {
+    "name": "phase-7",
+    "color": "1d76db",
+    "description": "Phase 7 \u2014 Control Tower Setup"
+  },
+  {
+    "name": "phase-8",
+    "color": "1d76db",
+    "description": "Phase 8 \u2014 Final Rollout & Continuous Improvement"
+  },
+  {
+    "name": "work-order",
+    "color": "f9d0c4",
+    "description": "Tracks Work Orders"
+  },
+  {
+    "name": "design-spec",
+    "color": "fef2c0",
+    "description": "Design Specifications"
+  },
+  {
+    "name": "diagram",
+    "color": "c5def5",
+    "description": "Mermaid diagrams and visual docs"
+  },
+  {
+    "name": "plan",
+    "color": "bfe5bf",
+    "description": "Phase plans and delivery docs"
+  },
+  {
+    "name": "governance",
+    "color": "d4c5f9",
+    "description": "Repo/process governance and templates"
+  },
+  {
+    "name": "draft",
+    "color": "ededed",
+    "description": "Draft - needs fleshing out"
+  },
+  {
+    "name": "in-progress",
+    "color": "fbca04",
+    "description": "Work is in progress"
+  },
+  {
+    "name": "blocked",
+    "color": "d73a4a",
+    "description": "Blocked - awaiting dependency"
+  },
+  {
+    "name": "needs-review",
+    "color": "0052cc",
+    "description": "Needs reviewer attention"
+  },
+  {
+    "name": "approved",
+    "color": "0e8a16",
+    "description": "Approved - ready to merge/execute"
+  },
+  {
+    "name": "deferred",
+    "color": "5319e7",
+    "description": "Deferred or paused"
+  },
+  {
+    "name": "p1",
+    "color": "b60205",
+    "description": "Highest priority / time critical"
+  },
+  {
+    "name": "p2",
+    "color": "dbab09",
+    "description": "Medium priority"
+  },
+  {
+    "name": "p3",
+    "color": "0e8a16",
+    "description": "Lower priority"
+  },
+  {
+    "name": "backend",
+    "color": "5319e7",
+    "description": "Firebase backend (Functions, Firestore, Realtime DB, Auth)"
+  },
+  {
+    "name": "desktop",
+    "color": "6f42c1",
+    "description": "Operations Desktop App"
+  },
+  {
+    "name": "portal",
+    "color": "0b6623",
+    "description": "Contractor Portal"
+  },
+  {
+    "name": "website",
+    "color": "0366d6",
+    "description": "Public Website"
+  },
+  {
+    "name": "finance",
+    "color": "c11d1d",
+    "description": "Accounting integration & reconciliation"
+  },
+  {
+    "name": "control-tower",
+    "color": "2ea44f",
+    "description": "Monitoring, orchestration, alerts, version dashboard"
+  },
+  {
+    "name": "docs",
+    "color": "6a737d",
+    "description": "Documentation and planning"
+  },
+  {
+    "name": "good-first-issue",
+    "color": "7057ff",
+    "description": "Good first issue for contributors"
+  },
+  {
+    "name": "help-wanted",
+    "color": "008672",
+    "description": "Extra hands appreciated"
+  },
+  {
+    "name": "question",
+    "color": "d876e3",
+    "description": "Needs clarification"
+  }
+]

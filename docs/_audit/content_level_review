@@ -1,0 +1,67 @@
+Here’s a **content-level review** of the three key files from your `swan_system_docs` repo:
+
+---
+
+## 📅 `phase_plans_index.md`
+
+**Purpose:**
+Acts as the **master index** for all Swan project phases, beyond just listing them. It integrates **objectives, dependencies, entry/exit criteria, risks/mitigations, KPIs, and linked visuals/specs**. The document is positioned as a **“single pane of glass”** for planning and delivery tracking.
+
+**Highlights:**
+
+* Uses clear **status keys** 🟡 Drafted · 🟦 In Progress · ✅ Approved · ⏸ Deferred.
+* Phase 1–2: “Foundations + Backend Core” links directly to supporting plans (`phase_1_2_plan.md`) and visuals (`swan_erp_flow_diagram.md`, `swan_erp_erd.md`).
+* Each phase ties to **work orders**, ensuring tactical execution is traceable.
+
+**Strength:** Creates strong **traceability** across phases, visuals, and subsystem work orders.
+**Gap:** Would benefit from **cross-phase risk tracking** (e.g., issues in Phase 2 that delay Phase 3).
+
+---
+
+## 🗂️ `work_order_master.md`
+
+**Purpose:**
+Defined as the **canonical master work order** for the entire ERP build. Unlike individual subsystem work orders, this doc blends a **narrative view** (big picture scope/governance) with **checklist-style execution items**, making it the **authoritative source of delivery planning**.
+
+**Highlights:**
+
+* Covers **all phases, subsystems, and governance tasks**.
+* Establishes **structure + hierarchy** of work orders.
+* Acts as the “glue” between the granular subsystem work orders and the high-level project phases.
+
+**Strength:** Provides **single authoritative reference** → no ambiguity about where the “real” work order lives.
+**Gap:** Doesn’t yet show **current status or owners per subsystem** (e.g., Firebase backend in progress vs. Control Tower drafted). This could be solved by tagging or tables.
+
+---
+
+## 🏗️ `swan_erp_system_architecture.md`
+
+**Purpose:**
+Defines the **overall architecture** of the Swan ERP system. Establishes why the ERP exists (unify operations for a lean recruitment firm) and what it integrates.
+
+**Highlights:**
+
+* Clear overview of Swan Recruitment’s context (UK-based, energy sector, 35+ years, 4-person core team).
+* ERP scope: **candidate sourcing, contract generation, contractor management, finance, reporting** — all unified into one system.
+* Focused on **integration** rather than isolated tooling.
+
+**Strength:** Sets a strong **vision + rationale** for the ERP project.
+**Gap:** Doesn’t yet expose a **modular component diagram** here — likely deferred to `diagrams/erp-module-map/`. Could add inline **links to visuals**.
+
+---
+
+## 🔑 Key Takeaways
+
+* **phase_plans_index.md** → Single source of truth for project roadmap.
+* **work_order_master.md** → Canonical “work order of work orders,” tying execution to planning.
+* **swan_erp_system_architecture.md** → High-level vision doc that grounds the ERP in Swan’s business reality.
+
+Together, they form a **three-layer documentation hierarchy**:
+
+1. **Architecture doc** (vision/system scope).
+2. **Phase index** (strategic roadmap with dependencies).
+3. **Master work order** (execution and governance).
+
+---
+
+👉 Do you want me to **drill into one of the subsystem work orders** (e.g., `work_order_firebase_backend.md` or `work_order_control_tower.md`) next, so we can check how detailed and actionable those are compared to the master doc?

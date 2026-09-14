@@ -1,0 +1,41 @@
+name: "Phase: Closeout"
+description: "Conclude the phase with approvals, lessons learned, and roll-forward notes."
+title: "[Closeout] <Project/Subsystem> – <Short name>"
+labels: ["phase", "ct-track", "closeout"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Objectives
+        Capture approvals, lessons, and ensure clean handover.
+  - type: textarea
+    id: outcomes
+    attributes:
+      label: Outcomes
+      description: What was delivered vs original objectives.
+    validations:
+      required: true
+  - type: textarea
+    id: lessons
+    attributes:
+      label: Lessons Learned / Follow-ups
+      description: What should we change next time? Any technical debt opened?
+  - type: input
+    id: approvals
+    attributes:
+      label: Approvals
+      description: Who approved closeout (usernames or names).
+    validations:
+      required: true
+  - type: checkboxes
+    id: housekeeping
+    attributes:
+      label: Housekeeping
+      options:
+        - label: "CT dashboard updated"
+          required: true
+        - label: "Docs finalised"
+          required: true
+        - label: "Risks closed or rolled forward"
+          required: true

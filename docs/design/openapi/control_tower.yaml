@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Swan Control Tower API
+  version: "0.1.0"
+  description: Operational API for events, runs, systems, health, and triggers.
+servers:
+  - url: https://ct.internal.swan
+paths:
+  /health:
+    get:
+      summary: Get overall and per-system health
+      responses:
+        "200":
+          description: OK
+  /events:
+    post:
+      summary: Ingest an event (HMAC + token required)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "202":
+          description: Accepted
+    get:
+      summary: List/query events
+      parameters:
+        - name: source
+          in: query
+          schema: {type: string}
+        - name: type
+          in: query
+          schema: {type: string}
+        - name: from
+          in: query
+          schema: {type: string, format: date-time}
+        - name: to
+          in: query
+          schema: {type: string, format: date-time}
+      responses:
+        "200":
+          description: OK
+  /runs/{runId}:
+    get:
+      summary: Get run details
+      parameters:
+        - name: runId
+          in: path
+          required: true
+          schema: {type: string}
+      responses:
+        "200": {description: OK}
+  /systems:
+    get:
+      summary: List systems health with SLO evaluation
+      responses:
+        "200": {description: OK}
+  /triggers/{name}:
+    post:
+      summary: Execute an allowlisted trigger
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema: {type: string}
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema: {type: object}
+      responses:
+        "202": {description: Accepted}
+  /reports/daily:
+    get:
+      summary: Get the current daily digest (JSON/markdown)
+      responses:
+        "200": {description: OK}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
