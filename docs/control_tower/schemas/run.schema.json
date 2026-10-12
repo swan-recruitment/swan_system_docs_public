@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CT Run",
+  "type": "object",
+  "required": [
+    "runId",
+    "trigger",
+    "status",
+    "createdAt"
+  ],
+  "properties": {
+    "runId": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "initiator": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "running",
+        "success",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "logs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

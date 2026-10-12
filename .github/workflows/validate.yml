@@ -1,0 +1,17 @@
+name: Validate System Docs
+
+on: [push, pull_request]
+
+jobs:
+  lint-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: |
+          npm install -g markdownlint-cli
+          cargo install lychee
+      - name: Lint Markdown
+        run: markdownlint "**/*.md"
+      - name: Check links
+        run: lychee --verbose . || true

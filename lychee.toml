@@ -1,0 +1,9 @@
+# Lychee link checker configuration
+exclude = [
+  "mailto:*",
+  "sandbox:*",
+  "file:*"
+]
+max-concurrency = 6
+accept = [200, 206, 429]
+retry-attempts = 2

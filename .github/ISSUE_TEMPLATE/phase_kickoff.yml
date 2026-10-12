@@ -1,0 +1,86 @@
+name: "Phase: Kickoff"
+description: "Start a delivery phase with objectives, dependencies, and entry/exit criteria."
+title: "[Kickoff] <Project/Subsystem> – <Short name>"
+labels: ["phase", "ct-track", "kickoff"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Objectives
+        Clearly state what this phase will deliver.
+  - type: textarea
+    id: objectives
+    attributes:
+      label: Objectives
+      description: High-level outcomes and the definition of done for this phase.
+      placeholder: >
+        e.g., Deliver MVP of Contractor Portal uploads; health endpoints in CT; basic metrics.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Upstream/downstream dependencies (work orders, repos, external systems).
+      placeholder: >
+        e.g., Firebase functions for uploads; CT health endpoint; GA4 property
+    validations:
+      required: true
+  - type: textarea
+    id: entry_criteria
+    attributes:
+      label: Entry Criteria
+      description: Preconditions to begin this phase.
+      placeholder: >
+        e.g., Repo scaffolded, branch protections on, env secrets available.
+    validations:
+      required: true
+  - type: textarea
+    id: exit_criteria
+    attributes:
+      label: Exit Criteria
+      description: What must be true to call this phase complete.
+      placeholder: >
+        e.g., Acceptance criteria met, CI green, docs updated, owner sign-off.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks & Mitigations
+      placeholder: >
+        e.g., Missing secrets -> mitigate with Secret Manager; perf risk -> Lighthouse in CI.
+  - type: textarea
+    id: kpis
+    attributes:
+      label: KPIs / Success Measures
+      placeholder: >
+        e.g., CI pass rate >= 90%, Time-to-close <= 14 days.
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      description: Phase Plan, Work Orders, Vision Docs, designs, diagrams.
+      placeholder: >
+        e.g., Phase plan item, WO links, CT dashboard URL.
+    validations:
+      required: true
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: Tasks
+      options:
+        - label: "Tasks drafted"
+          required: true
+        - label: "Risks reviewed"
+          required: false
+        - label: "Stakeholders notified"
+          required: false
+  - type: input
+    id: approvals
+    attributes:
+      label: Approvals
+      description: "Who must approve phase closeout (e.g., @ben-pitman)."
+    validations:
+      required: true

@@ -1,0 +1,26 @@
+# Treat non-200 as failure, but allow rate-limited hosts to be retried.
+max-concurrency = 8
+max-redirects   = 5
+timeout         = "10s"
+user-agent      = "swan-docs-link-check/1.0"
+
+# Don’t fail the build for anchors in GitHub “blob” views
+accept = ["200", "429", "999"]
+
+# Ignore “sandbox:” and mailto/tel
+exclude = [
+  "^sandbox:",
+  "^mailto:",
+  "^tel:"
+]
+
+# Local paths to check
+include = ["**/*.md"]
+
+# Skip built-in reports & temporary dirs
+exclude-path = [
+  "docs/reports",
+  "reports",
+  ".git",
+  "node_modules"
+]

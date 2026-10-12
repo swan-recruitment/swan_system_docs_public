@@ -1,0 +1,8 @@
+%% Mermaid diagram stub for Reporting & Analytics
+sequenceDiagram
+    participant ERP
+    participant ReportingDB
+    participant Dashboard
+    ERP->>ReportingDB: Export Data
+    ReportingDB->>Dashboard: Refresh Reports
+    Dashboard->>Leadership: Distribute Insights

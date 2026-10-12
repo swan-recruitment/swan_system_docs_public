@@ -1,0 +1,27 @@
+flowchart LR
+    P[Contractor Portal<br/>(Upload Timesheet/Invoice)]
+    B[Firebase Backend<br/>(Cloud Functions)]
+    CT{Control Tower<br/>(Orchestration & Validation)}
+    D[[Desktop Manager<br/>(Admin Cockpit)]]
+
+    %% Main flow
+    P -- "Submit Event<br/><code>event.schema.json</code>" --> B
+    B -- "Emit Run<br/><code>run.schema.json</code>" --> CT
+    CT -- "Expose Run Results" --> D
+
+    %% Admin loop
+    D -- "Manual Triggers<br/>(Admin Actions)" --> CT
+
+    %% Feedback/receipt
+    B -- "Status / Receipt" --> P
+
+    %% Styling
+    classDef portal fill:#e6f7ff,stroke:#55aaff,color:#003a66
+    classDef backend fill:#f7f3ff,stroke:#8a63d2,color:#2e1065
+    classDef ct fill:#fff7e6,stroke:#ffa940,color:#613400
+    classDef desktop fill:#f6ffed,stroke:#52c41a,color:#135200
+
+    class P portal
+    class B backend
+    class CT ct
+    class D desktop

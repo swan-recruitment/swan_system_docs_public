@@ -1,0 +1,23 @@
+# Swan ERP – Sequence Diagram: Contract Generator Flow
+
+Sequence of events when a candidate is placed in CATSone.
+
+```mermaid
+sequenceDiagram
+    participant CATS as CATSone ATS
+    participant WF as Firebase Webhook
+    participant CF as Cloud Function (Contract Generator)
+    participant FS as Firestore DB
+    participant CAT as CATSone API
+    participant PORTAL as Contractor Portal
+    participant DESKTOP as Desktop App
+
+    CATS->>WF: Candidate Placed Webhook (payload)
+    WF->>CF: Trigger Contract Generator
+    CF->>FS: Create new Contract document
+    CF->>CAT: Upload generated contract to candidate record
+    FS-->>PORTAL: Assignment details synced (contract info)
+    FS-->>DESKTOP: Contract visible to staff
+    CF->>FS: Store binary contract templates
+    FS-->>PORTAL: Contractor sees contract metadata
+```

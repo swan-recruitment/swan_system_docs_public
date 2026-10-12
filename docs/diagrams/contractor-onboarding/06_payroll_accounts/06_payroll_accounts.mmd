@@ -1,0 +1,9 @@
+%% Mermaid diagram stub for Payroll & Accounts
+sequenceDiagram
+    participant ERP
+    participant Payroll
+    participant Bank
+    ERP->>Payroll: Prepare Payroll
+    Payroll->>Bank: Issue Payment
+    Bank->>Contractor: Funds Received
+    Payroll->>ERP: Update Accounts
